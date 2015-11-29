@@ -4,20 +4,26 @@
   <meta charset="utf-8">
   <title>Simple Timer</title>
   <link rel="stylesheet" href="style.css">
+  <script src="timer.js"></script>
 </head>
 
 <body>
-  <div class="minute-timer">
-    <div class="minute-timer__minutes minute-timer__component">
-      3
-    </div>
-    <div class="minute-timer__colon minute-timer__component">
-      :
-    </div>
-    <div class="minute-timer__seconds minute-timer__component">
-      00
-    </div>
+  <div id="timer">
   </div>
+
+  <button id="start">start timer</button>
+  <script>
+  var minuteTimer = window.minuteTimer;
+  var timer = minuteTimer.timer.create({
+    seconds: 10
+  });
+  var digital = minuteTimer.view.digital;
+  digital.create(document.getElementById('timer'), timer);
+
+  document.getElementById('start').addEventListener('click', function () {
+    minuteTimer.timer.start(timer);
+  });
+  </script>
 </body>
 
 </html>

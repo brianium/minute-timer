@@ -1,5 +1,5 @@
 {
-  "name": "simple-timer",
+  "name": "minute-timer",
   "version": "1.0.0",
   "description": "A simple JS based timer",
   "main": "dist/index.js",
@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "browserify index.js -o dist/index.js -t [ babel-ify --presets [ es2015 ] ]",
-    "copy-dist": "cp dist/index.js examples/timer.js",
+    "build": "browserify -s minute-timer index.js -o dist/index.js -t [ babelify --presets [ es2015 ] ]",
+    "copy-dist": "cp dist/index.js example/timer.js",
     "dist": "npm run build && npm run copy-dist"
   },
   "keywords": [
