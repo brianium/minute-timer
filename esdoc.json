@@ -1,0 +1,5 @@
+{
+  "source": "./",
+  "excludes": ["jestEnvironment.js", "node_modules", "dist", "docs", "example"],
+  "destination": "./docs"
+}
