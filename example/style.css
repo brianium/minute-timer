@@ -1,10 +1,10 @@
 .minute-timer {
   background-color: #efefef;
   color: #444;
-  float: left;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 4rem;
   padding: 1rem;
+  width: 16.4rem;
 }
 
 .minute-timer:before,
@@ -21,7 +21,7 @@
 .minute-timer__component {
   background-color: #fff;
   float: left;
-  margin-left: 10px;
+  margin-left: 0.7rem;
   padding: 0 1.2rem;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2) inset, -1px -1px 3px rgba(0, 0, 0, 0.2) inset;
 }
