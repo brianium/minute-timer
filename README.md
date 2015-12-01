@@ -6,6 +6,8 @@ It's a timer! For minutes! Also seconds!
 to your app? Maybe your users need to time a thing? Maybe they just need to stare
 at moving numbers!
 
+![default minute timer](https://raw.github.com/brianium/minute-timer/master/minute-timer.png "default minute timer")
+
 ## Usage
 
 `minute-timer` exports 2 namespace values:
