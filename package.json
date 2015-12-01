@@ -18,6 +18,10 @@
   ],
   "author": "Brian Scaturro",
   "license": "MIT",
+  "homepage": "https://github.com/brianium/minute-timer",
+  "bugs": {
+    "url": "https://github.com/brianium/minute-timer/issues"
+  },
   "devDependencies": {
     "babel-jest": "^6.0.1",
     "babel-preset-es2015": "^6.1.18",
