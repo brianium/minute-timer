@@ -48,6 +48,7 @@ var timer = minuteTimer.timer.create({
 
 var digital = minuteTimer.view.digital;
 digital.create(someHtmlElement, timer);
+minuteTimer.timer.start(timer);
 ```
 
 or in the browser:
@@ -61,6 +62,7 @@ var timer = minuteTimer.timer.create({
 
 var digital = minuteTimer.view.digital;
 digital.create(someHtmlElement, timer);
+minuteTimer.timer.start(timer);
 ```
 
 ## Events
