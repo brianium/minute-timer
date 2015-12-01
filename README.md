@@ -1,4 +1,4 @@
-# minute-timer
+# minute-timer [![Build Status](https://travis-ci.org/brianium/minute-timer.svg?branch=master)](https://travis-ci.org/brianium/minute-timer)
 
 It's a timer! For minutes! Also seconds!
 
