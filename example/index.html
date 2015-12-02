@@ -45,7 +45,7 @@
   var minuteTimer = window.minuteTimer;
   var timer = minuteTimer.timer;
   var digital = minuteTimer.view.digital;
-  var pager = new Audio('pager.mp3');
+  var pager = new Audio();
 
   var myTimer = timer.create({
     minutes: 0,
@@ -59,6 +59,8 @@
   digital.create(document.getElementById('timer'), myTimer);
 
   document.getElementById('start').addEventListener('click', function () {
+    pager = new Audio('pager.mp3');
+    pager.load();
     timer.start(myTimer);
   });
   </script>
