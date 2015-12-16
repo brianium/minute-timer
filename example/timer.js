@@ -46,16 +46,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * @property {number} seconds
  */
 
-/**
- * @param {number}
- * @returns {number}
- */
 var floor = Math.floor;
-
-/**
- * @param {number}
- * @returns {number}
- */
 var round = Math.round;
 
 /**
@@ -126,7 +117,7 @@ var Timer = (function () {
 /**
  * Ensure the time state object is in a valid state
  *
- * @param {TimeState}
+ * @param {TimeState} state
  * @returns {TimeState}
  */
 
@@ -150,14 +141,14 @@ function check(timer) {
   var seconds = _timer$state.seconds;
 
   if (minutes <= 0 && seconds <= 0) {
-    stop(timer);
+    return stop(timer);
   }
 
   return timer;
 }
 
 /**
- * Create a new timer object from a specification
+ * Create a new timer object from a TimeState
  *
  * @param {TimeState} state
  * @returns {Timer}
@@ -223,6 +214,8 @@ function stop(timer) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.update = update;
+exports.bind = bind;
 exports.create = create;
 /**
  * @param {string} className
@@ -284,18 +277,28 @@ function update(element, timer) {
 }
 
 /**
+ * Bind an element to a timer
+ *
+ * @param {HTMLElement} element
+ * @param {Timer} timer
+ */
+function bind(element, timer) {
+  timer.on('tick', function (ticked) {
+    return update(element, ticked);
+  });
+}
+
+/**
  * Create a dom view tied to a timer
  *
  * @param {HTMLElement} element
- * @param {Timer} state
+ * @param {Timer} timer
  */
 function create(element, timer) {
   element.classList.add('minute-timer');
   var view = createTimer(timer);
   element.appendChild(view);
-  timer.on('tick', function (ticked) {
-    return update(element, ticked);
-  });
+  bind(element, timer);
 }
 
 },{}],4:[function(require,module,exports){
