@@ -32,6 +32,12 @@ export const view {
   digital: {
     create(element, timer) {
       // turn the element into a digital timer
+    },
+    update(element, timer) {
+      // update the element's state to that of the timer
+    },
+    bind(element, timer) {
+      // bind the element to the timer's tick event
     }
   }
 }
