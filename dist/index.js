@@ -214,6 +214,8 @@ function stop(timer) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.update = update;
+exports.bind = bind;
 exports.create = create;
 /**
  * @param {string} className
@@ -275,6 +277,18 @@ function update(element, timer) {
 }
 
 /**
+ * Bind an element to a timer
+ *
+ * @param {HTMLElement} element
+ * @param {Timer} timer
+ */
+function bind(element, timer) {
+  timer.on('tick', function (ticked) {
+    return update(element, ticked);
+  });
+}
+
+/**
  * Create a dom view tied to a timer
  *
  * @param {HTMLElement} element
@@ -284,9 +298,7 @@ function create(element, timer) {
   element.classList.add('minute-timer');
   var view = createTimer(timer);
   element.appendChild(view);
-  timer.on('tick', function (ticked) {
-    return update(element, ticked);
-  });
+  bind(element, timer);
 }
 
 },{}],4:[function(require,module,exports){
