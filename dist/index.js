@@ -260,6 +260,23 @@ function createTimer(timer) {
 }
 
 /**
+ * Replace the first text node with the given one
+ *
+ * @param {HTMLElement} element
+ * @param {string} newText
+ */
+function replaceText(element, newText) {
+  var nodes = element.childNodes;
+  for (var i = 0; i < nodes.length; i++) {
+    if (nodes[i].nodeType === 3) {
+      var newNode = document.createTextNode(newText);
+      element.replaceChild(newNode, nodes[i]);
+      return void 0;
+    }
+  }
+}
+
+/**
  * Update the element to reflect the timer state
  *
  * @param {HTMLElement} element
@@ -272,8 +289,8 @@ function update(element, timer) {
 
   var minuteView = element.getElementsByClassName('minute-timer__minutes')[0];
   var secondsView = element.getElementsByClassName('minute-timer__seconds')[0];
-  minuteView.innerHTML = minutes;
-  secondsView.innerHTML = formatSeconds(seconds);
+  replaceText(minuteView, minutes);
+  replaceText(secondsView, formatSeconds(seconds));
 }
 
 /**
