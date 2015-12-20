@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <script src="timer.js"></script>
   <style>
-  #start {
+  .button {
     background-color: tomato;
     border: none;
     border-radius: 4px;
@@ -24,11 +24,11 @@
     outline: none;
   }
 
-  #start:hover {
+  .button:hover {
     background-color: #ff4500;
   }
 
-  #start:active {
+  .button:active {
     box-shadow: 0 2px #8B0000;
   }
   </style>
@@ -39,7 +39,8 @@
   </div>
 
 
-  <button id="start">start timer</button>
+  <button id="start" class="button" type="button">start timer</button>
+  <button id="update" class="button" type="button">set to 4:30</button>
 
   <script>
   var minuteTimer = window.minuteTimer;
@@ -62,6 +63,13 @@
     pager = new Audio('pager.mp3');
     pager.load();
     timer.start(myTimer);
+  });
+
+  document.getElementById('update').addEventListener('click', function () {
+    myTimer = timer.update(myTimer, {
+      minutes: 4,
+      seconds: 30
+    });
   });
   </script>
 </body>

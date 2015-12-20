@@ -32,6 +32,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.create = create;
 exports.tick = tick;
+exports.update = update;
 exports.start = start;
 exports.stop = stop;
 
@@ -174,6 +175,18 @@ function tick(timer) {
 }
 
 /**
+ * Update the state of the timer
+ *
+ * @param {TimeState} state
+ * @returns {Timer}
+ */
+function update(timer, state) {
+  var validated = validate(state);
+  var newTimer = new Timer(validated, timer.emitter, timer.intervalID);
+  return newTimer.emit('update', newTimer);
+}
+
+/**
  * Start the given timer
  *
  * @param {Timer} timer
@@ -302,6 +315,9 @@ function update(element, timer) {
 function bind(element, timer) {
   timer.on('tick', function (ticked) {
     return update(element, ticked);
+  });
+  timer.on('update', function (updated) {
+    return update(element, updated);
   });
 }
 
