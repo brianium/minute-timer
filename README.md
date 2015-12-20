@@ -25,6 +25,10 @@ export const timer = {
   },
   tick(timer) {
     // tick the timer - i.e remove a second
+  },
+  update(timer, state) {
+    // return a new timer with an updated state
+    // the new timer will contain the old timer's intervalID and emitter
   }
 }
 
@@ -78,6 +82,7 @@ A timer exposes the following events:
 * start - when the timer starts
 * stop - when the timer stops
 * tick - when the timer ticks by a second
+* update - when the timer state is explicitly updated
 
 
 All event listeners will receive the timer instance that generated the event.
